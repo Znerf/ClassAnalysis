@@ -9,9 +9,9 @@ class Haar():
 
         self.i=0
 
-        self.directorycheck("Datasets")
-        self.directorycheck("Datasets/HaarData")
-        if self.directorycheck("Datasets/HaarData/"+name):
+        self.directorycheck("dataset")
+        self.directorycheck("dataset/HaarData")
+        if self.directorycheck("dataset/HaarData/"+name):
             self.status="Success"
         else:
             self.status="Override Data"
@@ -23,7 +23,7 @@ class Haar():
     def reset(self,name,port):
         self.name=name
         self.i=0
-        if self.directorycheck("Datasets/HaarData/"+name):
+        if self.directorycheck("dataset/HaarData/"+name):
             self.status="Success"
         else:
             self.status="Override Data"
@@ -73,12 +73,12 @@ class Haar():
             faces= self.haarcas(frame)
 
             for (x,y,w,h) in faces:
-                check, crop_img=self.cropimage(img,x,y,w,h)
+                check, crop_img=self.cropimage(frame,x,y,w,h)
                 if check is False:
                     # self.status=crop_img
                     continue
 
-                filename="Datasets/HaarData/"+self.name+"/"+str(self.i)+".jpg"
+                filename="dataset/HaarData/"+self.name+"/"+str(self.i)+".jpg"
                 if self.saveimage(filename, crop_img) is False:
                     continue
 
