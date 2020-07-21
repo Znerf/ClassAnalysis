@@ -1,7 +1,7 @@
 
 
 import cv2
-from pretrained.mtcnna import MTCNN
+from modules.mtcnn import MTCNN
 
 def main():
 
