@@ -25,4 +25,7 @@ Note::
 
 
 mtcnnface.py
-It is library for mtcnn face detection with eye nose and mouth detection with points. It has a error on bounding box creation right now. so MTCNN is not finished use mtcnn library pip install mtcnn and you can use it directly
+It is library for mtcnn face detection with eye nose and mouth detection with points. It is imported from modules.mtcnn. It has a error on bounding box creation right now. so MTCNN is not finished use mtcnn library pip install mtcnn and you can use it directly.
+
+
+facerecog.py
