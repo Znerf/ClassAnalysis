@@ -1,13 +1,13 @@
 # ClassAnalysis
 
 
-YoloEmotion.py<br/>
+<b>YoloEmotion.py</b><br/>
 It is test for Yolo face detection and emotion analysis. All pretrained codes are located at pretrained/emotion and yolo. It's main modules lies in modules/emotion.py and yolo.py<br/>
 
-haartest.py<br/>
+<b>haartest.py</b><br/>
 It include haarcascade code. It will send images to be processed. Uncomment the code there are comment rest to work it as harcascade face detection and cropping.<br/>
 
-Haar cascade documentation<br/>
+<b>Haar cascade documentation</b><br/>
 
 a=Haar("sagar",0)<br/>
 a.reset("sagar",0)<br/>
@@ -24,16 +24,15 @@ some static function<br/>
 Note::<br/>
 
 
-mtcnnface.py<br/>
+<b>mtcnnface.py</b><br/>
 It is library for mtcnn face detection with eye nose and mouth detection with points. It is imported from modules.mtcnn. It has a error on bounding box creation right now. so MTCNN is not finished use mtcnn library pip install mtcnn and you can use it directly.<br/>
 
 
-facerecog.py<br/>
-This program doesnot have training program. It has to be added first . In this modules, it has imported modules/facenet.py and it file located at dataset/facerecog for datafile and embeddings. Also, pretrained/facenet
+<b>yolofacerecog.py</b><br/>
+This program doesnot have training program. It has to be added first . In this modules, it has imported modules/facenet.py and it file located at dataset/facerecog for datafile and embeddings. Also, pretrained/facenet. It has used yolo as well. 
 
 
-File strucutre<br/>
+<b>File strucutre</b><br/>
 1. dataset  --> All the files that are fed to NN <br/>
 2. documentation --> document of this project as well as ouput screen shots<br/>
-
 3. 
