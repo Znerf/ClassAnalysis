@@ -1,5 +1,6 @@
 /dataset
 /pretrained
-/annotateInput
-/annotateOutput
 /trash
+/input 
+/annotateData
+/test

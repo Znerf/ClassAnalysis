@@ -14,10 +14,10 @@ import numpy as np
 
 
 class Facenet():
-    def __init__(self, train= False):
+    def __init__(self,port='./input/recog/sample.mp4', train= False):
 
         self.model='pretrained/facenet/facenet_keras.h5'
-        self.port='./input/recog/sample.mp4'
+        self.port=port
 
         if os.path.exists(self.model):
             pass
@@ -28,6 +28,7 @@ class Facenet():
         self.out_encoder = LabelEncoder()
         self.dataset='dataset/faceRecog/faces-dataset.npz'
         self.embedding='dataset/faceRecog/embeddings.npz'
+        self.classes={}
 
     def genModel(self):
         data = load(self.dataset)
@@ -35,6 +36,8 @@ class Facenet():
         # load face embeddings
         data = load(self.embedding)
         trainX, trainy, testX, testy = data['arr_0'], data['arr_1'], data['arr_2'], data['arr_3']
+        self.classes=set(trainy)
+        print(self.classes)
         print(trainX.shape)
         # normalize input vectors
         in_encoder = Normalizer(norm='l2')

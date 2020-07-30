@@ -35,10 +35,11 @@ COLOR_YELLOW = (0, 255, 255)
 
 
 class YoloDark():
-    def __init__(self, port=0, modelCfg="pretrained/yolo/cfg/yolov3-face.cfg", modelWeight= "pretrained/yolo/weights/yolov3-wider_16000.weights" ):
+    def __init__(self,boundingbox=True, port=0, modelCfg="pretrained/yolo/cfg/yolov3-face.cfg", modelWeight= "pretrained/yolo/weights/yolov3-wider_16000.weights" ):
         self.modelCfg=modelCfg
         self.modelWeight=modelWeight
         self.port=port#"test/sample.mp4"
+        self.boundingbox=boundingbox
 
         
 
@@ -150,7 +151,8 @@ class YoloDark():
             left, top, right, bottom = self.refined_box(left, top, width, height)
             # draw_predict(frame, confidences[i], left, top, left + width,
             #              top + height)
-            self.draw_predict(frame, confidences[i], left, top, right, bottom)
+            if self.boundingbox:
+                self.draw_predict(frame, confidences[i], left, top, right, bottom)
         return final_boxes
 
     def refined_box(self, left, top, width, height):
