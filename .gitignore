@@ -4,4 +4,11 @@
 /input 
 /annotateData
 /test
+
+dataset
+pretrained
+trash
+input
+annotateData
+test
 input/recog/sample.mp4
