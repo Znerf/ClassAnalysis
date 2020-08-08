@@ -15,7 +15,7 @@ from modules.annotate import Annotate
 
 
 def _main():
-	faceRecog= Facenet()
+	faceRecog= Facenet(port="annotateData/input/data1/sample.mp4")
 	model=faceRecog.genModel()
 	
 	yolo= YoloDark(boundingbox=False)
@@ -67,9 +67,10 @@ def _main():
 					print(class_probability)
 					print(predict_name)
 					
-					location='annotateData/output/'+predict_name[0]+'/'
+					location='annotateData/output/data1/'+predict_name[0]+'/'
 					a.directorycheck('annotateData')
 					a.directorycheck('annotateData/output/')
+					a.directorycheck('annotateData/output/data1/')
 					a.directorycheck(location)
 					# if(float(  videotime-float(int(videotime))>0.9  )):
 
@@ -81,8 +82,9 @@ def _main():
 					frame = cv2.putText(frame, predict_name[0], (x1,y1), cv2.FONT_HERSHEY_SIMPLEX,0.5, (100,100,255), 1, cv2.LINE_AA)
 				except:
 					pass
-			a.directorycheck('annotateData/output/frame')
-			a.saveImage(str(int(videotime))+'.jpg',frame,'annotateData/output/frame/')
+			a.directorycheck('annotateData/output/data1/')
+			a.directorycheck('annotateData/output/data1/frame/')
+			a.saveImage(str(int(videotime))+'.jpg',frame,'annotateData/output/data1/frame/')
 
 
 

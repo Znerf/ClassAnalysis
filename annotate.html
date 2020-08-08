@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Annotate data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app" class='ml-5'>
+        <h1  class="mt-5 ml-5">Welcome Aboard</h1>
+        
+        <card  class="card col-8 float-left" >
+            <div >
+                <img :src="img" class="width-100" @error="complete()">
+            </div>
+            <button v-on:click="download_csv()">Download CSV</button> 
+
+        </card>
+        <card  class="card col-2 float-left" >
+            <div >
+                <img :src="img1" id="check" class="width-100" @error="image_error()">
+            </div>
+            <div class="ml-3">
+                
+                <form >
+                    <p class="mt-3" ><b>Face Attribute</b></p>
+                    <div class='ml-2' >
+                        <div class="radio" v-for="datum in data">
+                            <label><input type="radio" name="checkedName" :value="datum" v-model='annotateData'>  {{datum}}</label>
+                        </div>
+                    </div>
+                    <p class="mt-3"><b>Face</b></p>
+                    <div class="ml-2">
+                        <div class="radio" v-for="people in peoples">
+                            <label><input type="radio" name="face" :value='people' v-model='face'> {{people}}</label>
+                        </div>
+                    </div>
+                    <div class="btn btn-primary" v-on:click="checkForm()"> Next</div><br />
+                    {{annotateData}} {{face}}
+                </form>
+            </div>
+        </card>
+    </div>
+    
+    
+
+</body>
+
+    <link rel="stylesheet" type="text/css" href="UI/css/annotate.css">
+    <script type="text/javascript" src="UI/js/annotate.js"></script>
+
+</html>
